@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="TextSize">
+    <item>8</item>
+    <item>16</item>
+    <item>24</item>
+    <item>32</item>
+    <item>36</item>
+</string-array>
+</resources>
