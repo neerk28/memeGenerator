@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MemeGenerator</string>
+    <string name="bottomtext">MORE TEXT HERE</string>
+    <string name="toptext">YOUR TEXT HERE</string>
+</resources>
