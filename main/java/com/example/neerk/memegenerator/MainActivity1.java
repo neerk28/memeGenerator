@@ -9,13 +9,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -25,9 +24,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,12 +46,11 @@ import java.io.OutputStream;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity1 extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 20;
     public static final int INTENT_REQUEST_CODE = 10;
     public static final int WRITE_REQUEST_CODE = 30;
-    public static final int INTENT_REQUEST_CODE_2 = 30;
     private EditText topText;
     private EditText bottomText;
     int defaultColor;
@@ -70,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
 
-        defaultColor = ContextCompat.getColor(MainActivity.this, R.color.colorPrimary);
+        defaultColor = ContextCompat.getColor(MainActivity1.this, R.color.colorPrimary);
         rootLayout = (FrameLayout) findViewById(R.id.frame);
         topText = (EditText) rootLayout.findViewById(R.id.editText1);
         bottomText = (EditText) rootLayout.findViewById(R.id.editText2);
@@ -192,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu1, menu);
         Drawable drawable = menu.findItem(R.id.changeLayout).getIcon();
         if (drawable != null) {
             drawable.mutate();
@@ -214,26 +210,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
+        Intent intent;
         if (id == R.id.text_color) {
             chooseColorForText();
         } else if (id == R.id.text_size) {
             chooseTextSizeFromSpinner();
         }/* else if (id == R.id.share) {
             sharePhoto();
-        }*/ else if (id == R.id.image1) {
+        }*/ else if (id == R.id.image) {
             requestPermissions(findViewById(R.id.imageView));
-        } else if (id == R.id.image2) {
-            requestPermissions(findViewById(R.id.imageView1));
         } /*else if (id == R.id.download) {
             requestPermissions();
         }*/else if(id == R.id.changeLayout){
-            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity1.this);
             builder.setTitle("Confirmation").setMessage("\nAre you sure to change the layout?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    startActivity(new Intent(MainActivity.this, MainActivity1.class));
+                    startActivity(new Intent(MainActivity1.this, MainActivity.class));
                 }
             });
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -244,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -272,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            waitDialog = ProgressDialog.show(MainActivity.this, "Please wait", "Downloading image");
+            waitDialog = ProgressDialog.show(MainActivity1.this, "Please wait", "Downloading image");
             waitDialog.setCancelable(false);
         }
 
@@ -283,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (flag) {
 
-                AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setPositiveButton("OK", null).setTitle("Success").setMessage("\n\nDownload complete!").show();
+                AlertDialog dialog = new AlertDialog.Builder(MainActivity1.this).setPositiveButton("OK", null).setTitle("Success").setMessage("\n\nDownload complete!").show();
                 TextView textView = (TextView) dialog.findViewById(android.R.id.message);
                 textView.setTextColor(Color.BLUE);
                 Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -291,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
                 positiveButton.setTextColor(getResources().getColor(android.R.color.black));
             } else {
 
-                AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setPositiveButton("OK", null).setTitle("Error").setMessage("\n\nDownload Incomplete, Try again...").show();
+                AlertDialog dialog = new AlertDialog.Builder(MainActivity1.this).setPositiveButton("OK", null).setTitle("Error").setMessage("\n\nDownload Incomplete, Try again...").show();
                 TextView textView = (TextView) dialog.findViewById(android.R.id.message);
                 textView.setTextColor(Color.RED);
                 Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -333,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
         topText = (EditText) findViewById(R.id.editText1);
         bottomText = (EditText) findViewById(R.id.editText2);
         String[] fontSize = {"8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"};
-        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity1.this);
         View mView = getLayoutInflater().inflate(R.layout.autocomplete_fontsize, null);
         mBuilder.setTitle("Choose text size");
         final AutoCompleteTextView textView;
@@ -353,15 +346,15 @@ public class MainActivity extends AppCompatActivity {
 
                     Float size = Float.parseFloat(textView.getText().toString());
                     if (size < 8 || size > 60) {
-                        Toast.makeText(MainActivity.this, "Enter a number between 3 and 60 !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity1.this, "Enter a number between 3 and 60 !", Toast.LENGTH_SHORT).show();
                     } else {
                         topText.setTextSize(size);
                         bottomText.setTextSize(size);
-                        Toast.makeText(MainActivity.this, "Text Size set to " + textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity1.this, "Text Size set to " + textView.getText().toString(), Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
                     }
                 } catch (NumberFormatException e) {
-                    Toast.makeText(MainActivity.this, "Invalid Input! Enter only numbers!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity1.this, "Invalid Input! Enter only numbers!", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -389,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
         AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, defaultColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
             @Override
             public void onCancel(AmbilWarnaDialog dialog) {
-                Toast.makeText(MainActivity.this, "Closed Color Picker", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity1.this, "Closed Color Picker", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -452,10 +445,6 @@ public class MainActivity extends AppCompatActivity {
         return intent;
     }
 
-    private void createPhotoIntent2() {
-        Intent intent = goToGallery();
-        startActivityForResult(intent, INTENT_REQUEST_CODE_2);
-    }
 
     private void requestPermissions(View view) {
         if (ContextCompat.checkSelfPermission(this,
@@ -472,12 +461,9 @@ public class MainActivity extends AppCompatActivity {
             // app-defined int constant. The callback method gets the
             // result of the request.
 
-        } else if (view.equals(findViewById(R.id.imageView))) {
-            createPhotoIntent();
         } else {
-            createPhotoIntent2();
+            createPhotoIntent();
         }
-
     }
 
     @Override
@@ -516,10 +502,6 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == INTENT_REQUEST_CODE) {
                 Uri photoUri = data.getData();
                 ImageView imageView = (ImageView) findViewById(R.id.imageView);
-                Picasso.with(this).load(photoUri).into(imageView);
-            } else if (requestCode == INTENT_REQUEST_CODE_2) {
-                Uri photoUri = data.getData();
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 Picasso.with(this).load(photoUri).into(imageView);
             }
         }

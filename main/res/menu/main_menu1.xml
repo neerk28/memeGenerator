@@ -2,51 +2,47 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/changeLayout"
-        android:icon="@drawable/ic_crop_square_black_24dp"
         android:orderInCategory="100"
         android:title="Layout"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:icon="@drawable/ic_view_stream_black_24dp"/>
+
     <item
         android:id="@+id/goToGallery"
-        android:icon="@drawable/ic_insert_photo_black_24dp"
         android:orderInCategory="100"
         android:title="Gallery"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:icon="@drawable/ic_insert_photo_black_24dp">
         <menu>
             <item
-                android:id="@+id/image1"
+                android:id="@+id/image"
                 android:orderInCategory="100"
-                android:title="Choose top image"
-                app:showAsAction="always" />
-            <item
-                android:id="@+id/image2"
-                android:orderInCategory="100"
-                android:title="Choose bottom image"
-                app:showAsAction="always" />
-
+                android:title="Choose image"
+                app:showAsAction="always"/>
         </menu>
     </item>
     <item
         android:id="@+id/edit"
-        android:icon="@drawable/ic_format_color_text_black_24dp"
         android:orderInCategory="100"
         android:title="Edit"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:icon="@drawable/ic_format_color_text_black_24dp">
         <menu>
             <item
                 android:id="@+id/text_color"
                 android:orderInCategory="100"
                 android:title="Text color"
-                app:showAsAction="always" />
+                app:showAsAction="always"/>
             <item
                 android:id="@+id/text_size"
                 android:orderInCategory="100"
                 android:title="Text size"
-                app:showAsAction="always" />
+                app:showAsAction="always"/>
 
-        </menu>
+            </menu>
     </item>
     <!--<item
         android:id="@+id/share"
@@ -60,6 +56,6 @@
         android:orderInCategory="100"
         android:title="Download"
         app:showAsAction="always"
-        android:icon="@drawable/ic_file_download_black_24dp"/>-->
-
+        android:icon="@drawable/ic_file_download_black_24dp"/>
+-->
 </menu>

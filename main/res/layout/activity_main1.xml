@@ -27,23 +27,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="false"
-            android:layout_marginBottom="260dp"
-            android:adjustViewBounds="true"
             android:cropToPadding="false"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/success_kid" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="false"
-            android:layout_marginTop="315dp"
-            android:adjustViewBounds="true"
-            android:baselineAlignBottom="false"
-            android:cropToPadding="false"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/success_kid_right" />
 
         <EditText
             android:id="@+id/editText1"
@@ -64,7 +54,7 @@
             android:paddingTop="16dp"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textColorHint="@color/white"
+            android:textColorHint="@android:color/darker_gray"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -93,7 +83,7 @@
             android:paddingTop="16dp"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textColorHint="@color/white"
+            android:textColorHint="@android:color/darker_gray"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"

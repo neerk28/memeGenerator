@@ -13,13 +13,14 @@
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
         android:completionThreshold="1"
+        android:cursorVisible="true"
         android:dropDownHeight="wrap_content"
         android:ems="10"
-        android:hint="Enter a number "
         android:paddingLeft="22dp"
         android:paddingRight="8dp"
         android:paddingTop="16dp"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:text="36">
 
         <requestFocus />
     </AutoCompleteTextView>
