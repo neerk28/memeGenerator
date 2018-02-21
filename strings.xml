@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Meme It</string>
+    <string name="bottomtext">MORE TEXT HERE</string>
+    <string name="toptext">YOUR TEXT HERE</string>
+    <string name="title_activity_entry">EntryActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main1">MainActivity1</string>
+</resources>
