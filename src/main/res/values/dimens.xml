@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="marginBottom">10dp</dimen>
+    <dimen name="fabMarginRight">16dp</dimen>
+    <dimen name="zeroDP">0dp</dimen>
+    <dimen name="eightDP">8dp</dimen>
+    <dimen name="sixDP">6dp</dimen>
+    <dimen name="sixteenDP">16dp</dimen>
+    <dimen name="thirtySP">30sp</dimen>
+    <dimen name="fourDP">4dp</dimen>
+    <dimen name="marginLeft">120dp</dimen>
+</resources>
